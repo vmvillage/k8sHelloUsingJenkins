@@ -6,7 +6,6 @@
     }   
     stage('Build Image') {
         sh label: '', script: 'docker images'
-        sh label: '', script: 'echo ${imagetag}'
         sh label: '', script: 'docker build -t wmhussain/nginx1.2 ./k8sHelloUsingJenkins/'
     }
     stage('Push to DockerHub Account') {
