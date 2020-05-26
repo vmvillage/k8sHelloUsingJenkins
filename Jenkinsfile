@@ -1,8 +1,5 @@
 def imagetag = "wmhussain/nginx1.2"
 
-pipeline {
-  agent any
-  
     node('DockerNode') {
     stages {
     stage('Clone Repository from Github') {
@@ -23,5 +20,4 @@ pipeline {
         
     }
 }
-}
-}
+    }
