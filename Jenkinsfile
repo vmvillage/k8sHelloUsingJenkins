@@ -1,7 +1,6 @@
-pipeline {
-    agent DockerNode
-    imagetag: 'wmhussain/nginx1.2'
-stages {
+imagetag = wmhussain/nginx1.2
+
+node('DockerNode') {
     stage('Clone Repository from Github') {
         sh label: '', script: 'rm -rf *'
         sh label: '', script: 'git clone https://github.com/vmvillage/k8sHelloUsingJenkins.git'
@@ -18,5 +17,4 @@ stages {
         sh label: '', script: 'docker rmi ${imagetag}'
         
     }
-}
 }
