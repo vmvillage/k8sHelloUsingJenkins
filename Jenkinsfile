@@ -1,17 +1,17 @@
 node('DockerNode') {
-    stage('build') {
+    stage('Clone Repository from Github') {
         sh label: '', script: 'rm -rf *'
         sh label: '', script: 'git clone https://github.com/vmvillage/k8sHelloUsingJenkins.git'
     }   
-    stage('build') {
+    stage('Build Image') {
         sh label: '', script: 'docker images'
         sh label: '', script: 'docker build -t wmhussain/nginx1.2 ./k8sHelloUsingJenkins/'
     }
-    stage('Push to DockerHub') {
+    stage('Push to DockerHub Account') {
         sh label: '', script: 'docker push wmhussain/nginx1.2'
         
     }
-    stage('deleteImage') {
+    stage('Delete Image') {
         sh label: '', script: 'docker rmi wmhussain/nginx1.2'
         
     }
