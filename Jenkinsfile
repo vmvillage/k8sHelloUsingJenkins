@@ -7,14 +7,14 @@
     stage('Build Image') {
         sh label: '', script: 'docker images'
         sh label: '', script: 'echo ${imagetag}'
-       // sh label: '', script: 'docker build -t wmhussain/nginx1.2 ./k8sHelloUsingJenkins/'
+        sh label: '', script: 'docker build -t wmhussain/nginx1.2 ./k8sHelloUsingJenkins/'
     }
     stage('Push to DockerHub Account') {
-     //   sh label: '', script: 'docker push wmhussain/nginx1.2'
+        sh label: '', script: 'docker push wmhussain/nginx1.2'
         
     }
     stage('Delete Image') {
-      //  sh label: '', script: 'docker rmi wmhussain/nginx1.2'
+        sh label: '', script: 'docker rmi wmhussain/nginx1.2'
         
     }
 }
