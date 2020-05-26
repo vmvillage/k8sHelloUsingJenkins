@@ -1,4 +1,4 @@
-imagetag = wmhussain/nginx1.2
+imagetag = 'wmhussain/nginx1.2'
 
 node('DockerNode') {
     stage('Clone Repository from Github') {
