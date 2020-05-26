@@ -1,3 +1,5 @@
+ImageTag: 'wmhussain/nginx1.2'
+
 node('DockerNode') {
     stage('Clone Repository from Github') {
         sh label: '', script: 'rm -rf *'
@@ -5,14 +7,14 @@ node('DockerNode') {
     }   
     stage('Build Image') {
         sh label: '', script: 'docker images'
-        sh label: '', script: 'docker build -t wmhussain/nginx1.2 ./k8sHelloUsingJenkins/'
+        sh label: '', script: 'docker build -t ${ImageTag} ./k8sHelloUsingJenkins/'
     }
     stage('Push to DockerHub Account') {
-        sh label: '', script: 'docker push wmhussain/nginx1.2'
+        sh label: '', script: 'docker push ${ImageTag}'
         
     }
     stage('Delete Image') {
-        sh label: '', script: 'docker rmi wmhussain/nginx1.2'
+        sh label: '', script: 'docker rmi ${ImageTag}'
         
     }
 }
