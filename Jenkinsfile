@@ -1,5 +1,5 @@
     node('DockerNode') {
-    stages {
+
     stage('Clone Repository from Github') {
         sh label: '', script: 'rm -rf *'
         sh label: '', script: 'git clone https://github.com/vmvillage/k8sHelloUsingJenkins.git'
@@ -17,5 +17,5 @@
         sh label: '', script: 'docker rmi wmhussain/nginx1.2'
         
     }
-}
+
 }
