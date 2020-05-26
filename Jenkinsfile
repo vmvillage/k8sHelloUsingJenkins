@@ -2,9 +2,9 @@ def imagetag = "wmhussain/nginx1.2"
 
 pipeline {
   agent any
-  stages {
+  
     node('DockerNode') {
-    
+    stages {
     stage('Clone Repository from Github') {
         sh label: '', script: 'rm -rf *'
         sh label: '', script: 'git clone https://github.com/vmvillage/k8sHelloUsingJenkins.git'
